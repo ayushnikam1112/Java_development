@@ -14,6 +14,7 @@ class library implements Runnable
             try {
 
                 Thread.sleep(3000);
+                System.out.println("Student A has arrived in library");
 
                 synchronized (res1) {
                     System.out.println("Student A has aquired " + res1);
@@ -37,15 +38,15 @@ class library implements Runnable
                 try {
 
                     Thread.sleep(3000);
-
-                    synchronized (res1){
-                        System.out.println("Student B has aquired " + res1);
+                    System.out.println("Student B has arrived in library");
+                    synchronized (res3){
+                        System.out.println("Student B has aquired " + res3);
                         Thread.sleep(3000);
                         synchronized (res2){
                             System.out.println("Student B has aquired " + res2);
                             Thread.sleep(3000);
-                            synchronized (res3){
-                                System.out.println("Student B has aquired " + res3);
+                            synchronized (res1){
+                                System.out.println("Student B has aquired " + res1);
                                 Thread.sleep(3000);
                             }
                         }
